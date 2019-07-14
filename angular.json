@@ -119,6 +119,47 @@
           }
         }
       }
-    }},
+    },
+    "cc-custom-tpl": {
+      "projectType": "library",
+      "root": "projects/cc-custom-tpl",
+      "sourceRoot": "projects/cc-custom-tpl/src",
+      "prefix": "cc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cc-custom-tpl/tsconfig.lib.json",
+            "project": "projects/cc-custom-tpl/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/cc-custom-tpl/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cc-custom-tpl/src/test.ts",
+            "tsConfig": "projects/cc-custom-tpl/tsconfig.spec.json",
+            "karmaConfig": "projects/cc-custom-tpl/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cc-custom-tpl/tsconfig.lib.json",
+              "projects/cc-custom-tpl/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "cc-custom-tpl-demo"
 }
